@@ -11,11 +11,8 @@ public class StatsService {
     }
 
     public int averageSales(long[] sales) {
-        long summ = 0;
-        for (int i = 0; i < sales.length; i++) {
-            summ = summ + sales[i];
-        }
-        return (int) summ / sales.length;
+        long sum = sumSales(sales);
+        return (int) sum / sales.length;
     }
 
     public int maxMonthSales(long[] sales) {
@@ -43,8 +40,7 @@ public class StatsService {
     }
 
     public int SumUnderAverage(long[] sales) {
-        StatsService service = new StatsService();
-        int summaAv = service.averageSales(sales);
+        int summaAv = averageSales(sales);
         long summUnder = 0;
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] < summaAv) {
@@ -55,8 +51,7 @@ public class StatsService {
     }
 
     public int SumOverAverage(long[] sales) {
-        StatsService service = new StatsService();
-        int summaAv = service.averageSales(sales);
+        int summaAv = averageSales(sales);
         long summUnder = 0;
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] > summaAv) {
